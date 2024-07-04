@@ -7,13 +7,16 @@ public class ConjuredItem extends NormallyProcessedItem {
     }
 
     /**
-     * Quality decreases 2 times faster
+     * The quality of the item decreases at twice the normal rate.
      */
     @Override
     public void updateQuality() {
         decreaseQuality(2);
     }
 
+    /**
+     * The sellIn value decreases by 1 each day
+     */
     @Override
     public void updateSellIn() {
         super.updateSellIn();

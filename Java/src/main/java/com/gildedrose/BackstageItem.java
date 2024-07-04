@@ -7,10 +7,11 @@ public class BackstageItem extends NormallyProcessedItem {
     }
 
     /**
-     * Quality increases as sellIn approaches
-     * Quality + 2 if 10-5 days before concert
-     * Quality + 3 if 5 or fewer days before concert
-     * After concert (sellIn = 0) -> Quality = 0
+     * The quality of the item increases as the sellIn date approaches
+     * Specifically:
+     * The quality increases by 2 if there are between 10 and 5 days remaining until the concert
+     * The quality increases by 3 if there are 5 or fewer days remaining until the concert
+     * Once the concert has passed (sellIn = 0), the quality of the item drops to 0
      */
     @Override
     public void updateQuality() {
@@ -25,6 +26,9 @@ public class BackstageItem extends NormallyProcessedItem {
         }
     }
 
+    /**
+     * The sellIn value decreases by 1 each day
+     */
     @Override
     public void updateSellIn() {
         super.updateSellIn();

@@ -26,5 +26,5 @@ There are instructions in the [TextTest Readme](../texttests/README.md) for sett
 
 The other relies on your CLASSPATH being set correctly in [environment.gr](../texttests/environment.gr). Uncomment these lines to use it instead:
 
-    executable:com.gildedrose.TexttestFixture
+    executable:com.gildedrose.GildedRoseBatchProcessingTest
     interpreter:java

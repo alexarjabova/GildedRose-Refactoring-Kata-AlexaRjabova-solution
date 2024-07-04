@@ -11,7 +11,7 @@ public class ItemCreator {
                 return new BackstageItem(name, sellIn, quality);
             case "Sulfuras, Hand of Ragnaros":
                 return new LegendaryItem(name, sellIn, quality);
-            case "Conjured Emberstone":
+            case "Conjured Mana Cake":
                 return new ConjuredItem(name, sellIn, quality);
             default:
                 return new NormallyProcessedItem(name, sellIn, quality);

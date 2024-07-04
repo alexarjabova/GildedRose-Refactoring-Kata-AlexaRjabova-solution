@@ -7,14 +7,14 @@ public class LegendaryItem extends NormallyProcessedItem{
     }
 
     /**
-     * Quality unchanged and always 80
+     * The quality of the item remains unchanged and is always set to 80
      */
     @Override
     public void updateQuality() {
     }
 
     /**
-     * SellIn unchanged and always 0
+     * The sellIn value remains unchanged and is always set to 0
      */
     @Override
     public void updateSellIn() {

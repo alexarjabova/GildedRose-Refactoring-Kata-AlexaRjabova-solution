@@ -8,22 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
-//    @ParameterizedTest
-//    @CsvSource({
-//            "Aged Brie, 3, 12, 2, 13",
-//            "Aged Brie, 10, 50, 9, 50",
-//            "Aged Brie, 0, 48, -1, 49"
-//    })
-//    void testAgedBrieItemQualityUpdate(String name, int sellIn, int quality, int expectedSellIn, int expectedQuality) {
-//        Item[] items = new Item[] { ItemCreator.createItem(name, sellIn, quality) };
-//        GildedRose app = new GildedRose(items);
-//
-//        app.updateQuality();
-//        assertEquals(name, app.items[0].name);
-//        assertEquals(expectedSellIn, app.items[0].sellIn);
-//        assertEquals(expectedQuality, app.items[0].quality);
-//    }
-
     @Test
     void testAgedBrieItemQualityUpdate() {
         Item[] items = new Item[] { ItemCreator.createItem("Aged Brie", 3, 12) };
@@ -125,22 +109,22 @@ class GildedRoseTest {
 
     @Test
     void testConjuredItemQualityUpdate() {
-        Item[] items = new Item[] { ItemCreator.createItem("Conjured Emberstone", 15, 30) };
+        Item[] items = new Item[] { ItemCreator.createItem("Conjured Mana Cake", 15, 30) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Conjured Emberstone", app.items[0].name);
+        assertEquals("Conjured Mana Cake", app.items[0].name);
         assertEquals(14, app.items[0].sellIn);
         assertEquals(28, app.items[0].quality);
     }
 
     @Test
     void testConjuredItemQualityUpdate_qualityShouldDrop2timesFasterOnceEventPassed() {
-        Item[] items = new Item[] { ItemCreator.createItem("Conjured Emberstone", 0, 26) };
+        Item[] items = new Item[] { ItemCreator.createItem("Conjured Mana Cake", 0, 26) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Conjured Emberstone", app.items[0].name);
+        assertEquals("Conjured Mana Cake", app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(22, app.items[0].quality);
     }
@@ -170,7 +154,7 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             "Sulfuras, Hand of Ragnaros; 0; 0; 0; 0",
-            "Conjured Emberstone; 7; 0; 6; 0",
+            "CConjured Mana Cake; 7; 0; 6; 0",
             "Unknown Item with Default Quality field update process; 12; 0; 11; 0"
     })
     void testUnknownItemQualityUpdate_qualityCanNotBeNegative(String name, int sellIn, int quality, int expectedSellIn, int expectedQuality) {
