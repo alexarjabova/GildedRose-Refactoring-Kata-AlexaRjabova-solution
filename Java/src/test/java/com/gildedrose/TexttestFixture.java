@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import static com.gildedrose.NameConstants.*;
 
-public class GildedRoseBatchProcessingTest {
+public class TexttestFixture {
 
     public static void main(String[] args) {
 
