@@ -1,6 +1,8 @@
 package com.gildedrose;
 
-public class GildedRoseBatchProcessingTest {
+import static com.gildedrose.ItemConstants.*;
+
+public class TexttestFixture {
 
     public static void main(String[] args) {
 
@@ -8,20 +10,19 @@ public class GildedRoseBatchProcessingTest {
 
         Item[] items = new Item[] {
                 ItemCreator.createItem("+5 Dexterity Vest", 10, 20),
-                ItemCreator.createItem("Aged Brie", 2, 0),
-                ItemCreator.createItem("Aged Brie", 2, 49),
+                ItemCreator.createItem(AGED_BRIE, 2, 0),
                 ItemCreator.createItem("Elixir of the Mongoose", 5, 7),
-                ItemCreator.createItem("Sulfuras, Hand of Ragnaros", 0, 80),
-                ItemCreator.createItem("Sulfuras, Hand of Ragnaros", -1, 80),
-                ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-                ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),
-                ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-                ItemCreator.createItem("Conjured Mana Cake", 3, 6)
+                ItemCreator.createItem(SULFURAS, 0, 80),
+                ItemCreator.createItem(SULFURAS, -1, 80),
+                ItemCreator.createItem(BACKSTAGE_PASSES, 15, 20),
+                ItemCreator.createItem(BACKSTAGE_PASSES, 10, 49),
+                ItemCreator.createItem(BACKSTAGE_PASSES, 5, 49),
+                ItemCreator.createItem(CONJURED, 3, 6)
         };
 
         GildedRose app = new GildedRose(items);
 
-        int days = 4;
+        int days = 2;
         if (args.length > 0) {
             days = Integer.parseInt(args[0]) + 1;
         }

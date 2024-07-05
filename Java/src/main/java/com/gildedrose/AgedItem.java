@@ -7,22 +7,14 @@ public class AgedItem extends NormallyProcessedItem {
     }
 
     /**
-     * For items of the AgedItem type, the quality value increases by 1 as the items age
-     *  The maximum quality is 50
+     * For items of the AgedItem type, the quality value increases by 1 as the items age.
+     * The maximum quality is 50.
      */
     @Override
     public void updateQuality() {
         if (quality < 50) {
             increaseQuality(1);
         }
-    }
-
-    /**
-     * The sellIn value decreases by 1 each day
-     */
-    @Override
-    public void updateSellIn() {
-        super.updateSellIn();
     }
 
 }
