@@ -1,17 +1,19 @@
 package com.gildedrose;
 
+import static com.gildedrose.NameConstants.*;
+
 public class ItemCreator {
 
     public static Item createItem(String name, int sellIn, int quality) {
 
         switch (name) {
-            case "Aged Brie":
+            case AGED_BRIE:
                 return new AgedItem(name, sellIn, quality);
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackstageItem(name, sellIn, quality);
-            case "Sulfuras, Hand of Ragnaros":
+            case BACKSTAGE_PASSES:
+                return new BackstagePassesItem(name, sellIn, quality);
+            case SULFURAS:
                 return new LegendaryItem(name, sellIn, quality);
-            case "Conjured Mana Cake":
+            case CONJURED:
                 return new ConjuredItem(name, sellIn, quality);
             default:
                 return new NormallyProcessedItem(name, sellIn, quality);

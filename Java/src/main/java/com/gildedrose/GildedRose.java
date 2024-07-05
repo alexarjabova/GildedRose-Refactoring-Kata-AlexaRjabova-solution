@@ -16,5 +16,6 @@ class GildedRose {
             itemForUpdate.updateSellIn();
             itemForUpdate.updateQuality();
         });
+
     }
 }

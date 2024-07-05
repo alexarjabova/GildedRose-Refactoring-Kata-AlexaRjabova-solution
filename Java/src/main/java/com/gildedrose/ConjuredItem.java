@@ -14,12 +14,4 @@ public class ConjuredItem extends NormallyProcessedItem {
         decreaseQuality(2);
     }
 
-    /**
-     * The sellIn value decreases by 1 each day
-     */
-    @Override
-    public void updateSellIn() {
-        super.updateSellIn();
-    }
-
 }

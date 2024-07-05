@@ -4,127 +4,129 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import static com.gildedrose.NameConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
     @Test
     void testAgedBrieItemQualityUpdate() {
-        Item[] items = new Item[] { ItemCreator.createItem("Aged Brie", 3, 12) };
+        Item[] items = new Item[] { ItemCreator.createItem(AGED_BRIE, 3, 12) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(AGED_BRIE, app.items[0].name);
         assertEquals(2, app.items[0].sellIn);
         assertEquals(13, app.items[0].quality);
     }
 
     @Test
     void testAgedBrieItemQualityUpdate_whenQualityIsMaxValue() {
-        Item[] items = new Item[] { ItemCreator.createItem("Aged Brie", 10, 50) };
+        Item[] items = new Item[] { ItemCreator.createItem(AGED_BRIE, 10, 50) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(AGED_BRIE, app.items[0].name);
         assertEquals(9, app.items[0].sellIn);
         assertEquals(50, app.items[0].quality);
     }
 
+    // ToDo mentioned about bug
     @Test
     void testAgedBrieItemQualityUpdate_whenSellInEqualsZero() {
-        Item[] items = new Item[] { ItemCreator.createItem("Aged Brie", 0, 48) };
+        Item[] items = new Item[] { ItemCreator.createItem(AGED_BRIE, 0, 48) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Aged Brie", app.items[0].name);
+        assertEquals(AGED_BRIE, app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(49, app.items[0].quality);
     }
 
     @Test
     void testBackstageItemItemQualityUpdate_whenConcertToday() {
-        Item[] items = new Item[] { ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 1, 8) };
+        Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 1, 8) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(0, app.items[0].sellIn);
         assertEquals(11, app.items[0].quality);
     }
 
     @Test
     void testBackstageItemItemQualityUpdate_aterConcert_sellInLessThenZero() {
-        Item[] items = new Item[] { ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 0, 8) };
+        Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 0, 8) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(0, app.items[0].quality);
     }
 
     @Test
     void testBackstageItemQualityUpdate_5daysBeforeConcert() {
-        Item[] items = new Item[] { ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 6, 7) };
+        Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 6, 7) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(5, app.items[0].sellIn);
         assertEquals(10, app.items[0].quality);
     }
 
     @Test
     void testBackstageItemQualityUpdate_9daysBeforeConcert() {
-        Item[] items = new Item[] { ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 10, 12) };
+        Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 10, 12) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(9, app.items[0].sellIn);
         assertEquals(14, app.items[0].quality);
     }
 
     @Test
     void testBackstageItemQualityUpdate_12daysBeforeConcert() {
-        Item[] items = new Item[] { ItemCreator.createItem("Backstage passes to a TAFKAL80ETC concert", 13, 6) };
+        Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 13, 6) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Backstage passes to a TAFKAL80ETC concert", app.items[0].name);
+        assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(12, app.items[0].sellIn);
         assertEquals(7, app.items[0].quality);
     }
 
     @Test
     void testLegendaryItemQualityUpdate_qualityAlways80_sellInAlwaysZero() {
-        Item[] items = new Item[] { ItemCreator.createItem("Sulfuras, Hand of Ragnaros", 0, 80) };
+        Item[] items = new Item[] { ItemCreator.createItem(SULFURAS, 0, 80) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Sulfuras, Hand of Ragnaros", app.items[0].name);
+        assertEquals(SULFURAS, app.items[0].name);
         assertEquals(0, app.items[0].sellIn);
         assertEquals(80, app.items[0].quality);
     }
 
     @Test
     void testConjuredItemQualityUpdate() {
-        Item[] items = new Item[] { ItemCreator.createItem("Conjured Mana Cake", 15, 30) };
+        Item[] items = new Item[] { ItemCreator.createItem(CONJURED, 15, 30) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Conjured Mana Cake", app.items[0].name);
+        assertEquals(CONJURED, app.items[0].name);
         assertEquals(14, app.items[0].sellIn);
         assertEquals(28, app.items[0].quality);
     }
 
     @Test
     void testConjuredItemQualityUpdate_qualityShouldDrop2timesFasterOnceEventPassed() {
-        Item[] items = new Item[] { ItemCreator.createItem("Conjured Mana Cake", 0, 26) };
+        Item[] items = new Item[] { ItemCreator.createItem(CONJURED, 0, 26) };
         GildedRose app = new GildedRose(items);
 
         app.updateQuality();
-        assertEquals("Conjured Mana Cake", app.items[0].name);
+        assertEquals(CONJURED, app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
         assertEquals(22, app.items[0].quality);
     }
@@ -154,7 +156,7 @@ class GildedRoseTest {
     @ParameterizedTest
     @CsvSource(delimiter = ';', value = {
             "Sulfuras, Hand of Ragnaros; 0; 0; 0; 0",
-            "CConjured Mana Cake; 7; 0; 6; 0",
+            "Conjured Mana Cake; 7; 0; 6; 0",
             "Unknown Item with Default Quality field update process; 12; 0; 11; 0"
     })
     void testUnknownItemQualityUpdate_qualityCanNotBeNegative(String name, int sellIn, int quality, int expectedSellIn, int expectedQuality) {

@@ -10,15 +10,15 @@ public class NormallyProcessedItem extends Item {
     }
 
     /**
-     * The quality of the item decreases by 1 for each decrease in the sellIn value
-     * The minimum quality is 0
+     * The quality of the item decreases by 1 for each decrease in the sellIn value.
+     * The minimum quality is 0.
      */
     public void updateQuality() {
         decreaseQuality(1);
     }
 
     /**
-     * The sellIn value decreases by 1 each day
+     * The sellIn value decreases by 1 each day.
      */
     public void updateSellIn() {
         sellIn -= 1;
