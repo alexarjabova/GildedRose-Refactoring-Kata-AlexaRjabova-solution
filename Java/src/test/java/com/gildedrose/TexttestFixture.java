@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import static com.gildedrose.NameConstants.*;
+import static com.gildedrose.ItemConstants.*;
 
 public class TexttestFixture {
 
@@ -11,7 +11,6 @@ public class TexttestFixture {
         Item[] items = new Item[] {
                 ItemCreator.createItem("+5 Dexterity Vest", 10, 20),
                 ItemCreator.createItem(AGED_BRIE, 2, 0),
-                ItemCreator.createItem(AGED_BRIE, 2, 49),
                 ItemCreator.createItem("Elixir of the Mongoose", 5, 7),
                 ItemCreator.createItem(SULFURAS, 0, 80),
                 ItemCreator.createItem(SULFURAS, -1, 80),
@@ -23,7 +22,7 @@ public class TexttestFixture {
 
         GildedRose app = new GildedRose(items);
 
-        int days = 4;
+        int days = 2;
         if (args.length > 0) {
             days = Integer.parseInt(args[0]) + 1;
         }

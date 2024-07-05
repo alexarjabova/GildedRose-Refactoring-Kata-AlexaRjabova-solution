@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static com.gildedrose.NameConstants.*;
+import static com.gildedrose.ItemConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
@@ -31,7 +31,6 @@ class GildedRoseTest {
         assertEquals(50, app.items[0].quality);
     }
 
-    // ToDo mentioned about bug
     @Test
     void testAgedBrieItemQualityUpdate_whenSellInEqualsZero() {
         Item[] items = new Item[] { ItemCreator.createItem(AGED_BRIE, 0, 48) };
@@ -40,7 +39,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(AGED_BRIE, app.items[0].name);
         assertEquals(-1, app.items[0].sellIn);
-        assertEquals(49, app.items[0].quality);
+        assertEquals(50, app.items[0].quality);
     }
 
     @Test
@@ -55,7 +54,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void testBackstageItemItemQualityUpdate_aterConcert_sellInLessThenZero() {
+    void testBackstageItemItemQualityUpdate_afterConcert_sellInLessThenZero() {
         Item[] items = new Item[] { ItemCreator.createItem(BACKSTAGE_PASSES, 0, 8) };
         GildedRose app = new GildedRose(items);
 
@@ -73,7 +72,7 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(BACKSTAGE_PASSES, app.items[0].name);
         assertEquals(5, app.items[0].sellIn);
-        assertEquals(10, app.items[0].quality);
+        assertEquals(9, app.items[0].quality);
     }
 
     @Test

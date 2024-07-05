@@ -12,7 +12,6 @@ public class AgedItem extends NormallyProcessedItem {
      */
     @Override
     public void updateQuality() {
-        //todo
         if (quality < 50) {
             increaseQuality(1);
         }

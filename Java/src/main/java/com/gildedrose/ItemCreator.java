@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import static com.gildedrose.NameConstants.*;
+import static com.gildedrose.ItemConstants.*;
 
 public class ItemCreator {
 

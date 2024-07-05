@@ -1,9 +1,9 @@
 package com.gildedrose;
 
-public class NormallyProcessedItem extends Item {
+import static com.gildedrose.ItemConstants.MAX_QUALITY;
+import static com.gildedrose.ItemConstants.MIN_QUALITY;
 
-    public static final int MAX_QUALITY = 50;
-    public static final int MIN_QUALITY = 0;
+public class NormallyProcessedItem extends Item {
 
     public NormallyProcessedItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
@@ -25,16 +25,18 @@ public class NormallyProcessedItem extends Item {
     }
 
     public void decreaseQuality(int decreaseAmount) {
-        int calculatedDecreaseAmount = calculateDecreaseAmount(decreaseAmount);
+        int calculatedDecreaseAmount = calculateDecreaseIncreaseAmount(decreaseAmount);
 
         quality = Math.max(MIN_QUALITY, Math.min(quality - calculatedDecreaseAmount, MAX_QUALITY));
     }
 
     public void increaseQuality(int increaseAmount) {
-        quality = Math.max(MIN_QUALITY, Math.min(quality + increaseAmount, MAX_QUALITY));
+        int calculatedIncreaseAmount = calculateDecreaseIncreaseAmount(increaseAmount);
+
+        quality = Math.max(MIN_QUALITY, Math.min(quality + calculatedIncreaseAmount, MAX_QUALITY));
     }
 
-    private int calculateDecreaseAmount(int decreaseAmount) {
+    private int calculateDecreaseIncreaseAmount(int decreaseAmount) {
         if (sellIn < 0) {
             decreaseAmount *= 2;
         }
