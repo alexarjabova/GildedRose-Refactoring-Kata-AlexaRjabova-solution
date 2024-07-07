@@ -1,6 +1,8 @@
 package com.gildedrose;
 
-public class AgedItem extends NormallyProcessedItem {
+import static com.gildedrose.ItemsUtil.updateQualityField;
+
+public class AgedItem extends NormalItem {
 
     public AgedItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
@@ -12,9 +14,7 @@ public class AgedItem extends NormallyProcessedItem {
      */
     @Override
     public void updateQuality() {
-        if (quality < 50) {
-            increaseQuality(1);
-        }
+        quality = updateQualityField(sellIn, quality, 1);
     }
 
 }

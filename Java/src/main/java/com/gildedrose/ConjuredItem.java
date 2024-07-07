@@ -1,6 +1,8 @@
 package com.gildedrose;
 
-public class ConjuredItem extends NormallyProcessedItem {
+import static com.gildedrose.ItemsUtil.updateQualityField;
+
+public class ConjuredItem extends NormalItem {
 
     public ConjuredItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
@@ -11,7 +13,7 @@ public class ConjuredItem extends NormallyProcessedItem {
      */
     @Override
     public void updateQuality() {
-        decreaseQuality(2);
+        quality = updateQualityField(sellIn, quality, -2);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemConstants.*;
+import static com.gildedrose.ItemsConstants.*;
+import static com.gildedrose.ItemsType.*;
 
 public class TexttestFixture {
 
@@ -10,14 +11,14 @@ public class TexttestFixture {
 
         Item[] items = new Item[] {
                 ItemCreator.createItem("+5 Dexterity Vest", 10, 20),
-                ItemCreator.createItem(AGED_BRIE, 2, 0),
+                ItemCreator.createItem(AGED_BRIE.getName(), 2, 0),
                 ItemCreator.createItem("Elixir of the Mongoose", 5, 7),
-                ItemCreator.createItem(SULFURAS, 0, 80),
-                ItemCreator.createItem(SULFURAS, -1, 80),
-                ItemCreator.createItem(BACKSTAGE_PASSES, 15, 20),
-                ItemCreator.createItem(BACKSTAGE_PASSES, 10, 49),
-                ItemCreator.createItem(BACKSTAGE_PASSES, 5, 49),
-                ItemCreator.createItem(CONJURED, 3, 6)
+                ItemCreator.createItem(SULFURAS.getName(), 0, 80),
+                ItemCreator.createItem(SULFURAS.getName(), -1, 80),
+                ItemCreator.createItem(BACKSTAGE_PASSES.getName(), 15, 20),
+                ItemCreator.createItem(BACKSTAGE_PASSES.getName(), 10, 49),
+                ItemCreator.createItem(BACKSTAGE_PASSES.getName(), 5, 49),
+                ItemCreator.createItem(CONJURED.getName(), 3, 6)
         };
 
         GildedRose app = new GildedRose(items);

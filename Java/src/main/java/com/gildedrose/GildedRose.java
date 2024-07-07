@@ -12,7 +12,7 @@ class GildedRose {
     public void updateQuality() {
 
         Arrays.stream(items).forEach(item -> {
-            NormallyProcessedItem itemForUpdate = (NormallyProcessedItem) item;
+            NormalItem itemForUpdate = (NormalItem) item;
             itemForUpdate.updateSellIn();
             itemForUpdate.updateQuality();
         });

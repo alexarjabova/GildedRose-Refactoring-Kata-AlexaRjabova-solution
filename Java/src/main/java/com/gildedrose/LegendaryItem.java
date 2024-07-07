@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class LegendaryItem extends NormallyProcessedItem{
+public class LegendaryItem extends NormalItem {
 
     public LegendaryItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
