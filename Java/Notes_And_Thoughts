@@ -1,79 +1,34 @@
 Hello, dear viewer!
 
-I am Aleksandra, and this is my solution to the GildedRose-Refactoring-Kata problem. :)
-In the current branch (alrj-solution), a simple inheritance approach is used to refactor the code.
+I am Aleksandra, and this is my second solution to the GildedRose-Refactoring-Kata problem. :)
+In the current branch (alrj-solution-with-util), a ItemsUtil.java class is used to store commonly used functionality.
 
-    Simple inheritance has multiple advantages:
+    This approach has multiple advantages:
 
-        1) Simplicity and Clarity: Inheritance is straightforward and easy to understand. Each class has a clear and direct
-        relationship with its superclass (in this case, with the NormallyProcessedItem.java class). Inheritance simplifies
-        the codebase, making it easier to maintain and debug.
+        1) Utility classes provide a centralized place for common functions that can be reused across different parts of the application.
+        This reduces code duplication and promotes the DRY (Don't Repeat Yourself) principle.
 
-        2) Avoids Complexity: Single inheritance avoids the complexity of multiple inheritance, where a class can inherit
-        from more than one superclass, leading to complex and confusing hierarchies. Java avoids multiple inheritance (using
-        classes) to prevent the "Diamond Problem," where ambiguities arise if a class inherits from two classes that have
-        a common ancestor.
+        2) Util class usage makes the code easier to read, maintain, and test.
 
-        3) Better Encapsulation and Modularity: Single inheritance promotes better encapsulation and modularity. Changes
-        in a superclass have a predictable impact on subclasses, helping create a well-structured and modular codebase where
-        functionality is neatly compartmentalized.
+        3) Utility classes allow you to maintain commonly used methods in one place. If a change is needed, it can be made in
+        the utility class, and all dependent code will automatically use the updated method.
 
-        4) Code Reusability: Single inheritance allows for code reuse without the complications of multiple inheritance.
-        Common functionalities can be defined in the superclass and inherited by subclasses.
+        4) Utility methods are static and can be tested in isolation from the rest of the application.
 
-        5) Promotes DRY Principle: Simple inheritance promotes the "Don't Repeat Yourself" principle, reducing code duplication.
+        5) Consistent Usage: by defining utility methods in a single class, you ensure consistent usage across the application.
+        This can standardize how certain operations are performed, reducing errors and improving code quality.
 
-        6) Ease of Maintenance: It is easier to understand and maintain the code, as the hierarchy is not overly complex.
+    While utility classes in Java provide benefits such as reusability and separation of concerns, they also have significant
+    drawbacks, including:
 
-BUT...
+        1) Promoting procedural code: Utility classes often promote a procedural style of coding, which can lead to a codebase
+        that is less object-oriented.
 
-    While simple inheritance in Java has many advantages, there are some disadvantages as well:
+        2) Difficulty in Unit Testing: Static methods in utility classes are hard to mock and test in isolation, making unit
+        testing more challenging.
 
-        1) Limited Flexibility: A class can inherit from only one superclass, which might limit its ability to reuse code
-        from multiple sources. This constraint can make it difficult to design classes that need to share behavior from
-        multiple unrelated classes.
+        3) Limited extensibility: Utility classes with static methods cannot be extended or overridden, limiting flexibility
+        and extensibility. This can make it difficult to modify behavior without changing the original utility class.
 
-        2) Potential for Deep Inheritance Hierarchies: To reuse code, developers might create deep inheritance hierarchies,
-        which can become difficult to manage and understand. Deep hierarchies can make the codebase tightly coupled, leading
-        to future maintenance challenges.
-            Example:
-                    class A { /* Some code */ }
-                    class B extends A { /* Some more code */ }
-                    class C extends B { /* Even more code */ }
-                    // and so on...
-
-        3) Risk of Breaking Subclasses: Changes in the superclass can inadvertently break subclasses if not managed
-        carefully. Developers should be very careful when implementing changes to the superclass, as changes will likely
-        be needed in overridden methods as well.
-
-        4) Code Duplication: Without the ability to inherit from multiple classes, developers might end up duplicating code
-        across different classes that need similar functionality.
-
-        5) Misuse of Inheritance: Inheritance can be misused to share code between classes that do not have an "is-a" relationship,
-        leading to inappropriate hierarchies and confusing, poorly designed class structures.
-            Example:
-                class Animal {
-                    void eat() {
-                        System.out.println("Eating");
-                    }
-                }
-
-                class Car extends Animal {
-                    // Car is not an Animal, but we're inheriting just to reuse the eat method.
-                }
-
-When logic becomes more complex, alternative approaches should be used:
-
-    1) Interfaces and Abstract Classes
-    2) Composition to assemble behaviors from different classes instead of inheriting from a superclass
-    3) Design patterns like Strategy, Decorator, and Factory to achieve code reuse and flexibility without relying heavily
-    on inheritance.
-
-To summarize, the solution provided by me improves code readability, maintainability, and makes it easier to add new types
-of items in the future.
-The current refactoring can be improved even more by using an Enum for the Item's name field, and I am brave enough to talk
-with Goblin if required.
-
-P.S. The more I look into the code, the more different solutions I see. For example, updateQuality() and updateSellIn()
-can be moved to an ItemsUtil.java class, which would open up new variations of refactoring.
-
+        4) Namespace pollution: Utility classes can become overcrowded with a variety of unrelated methods, leading to poor
+        organization and namespace pollution. This makes it harder to find and manage specific utility methods.
