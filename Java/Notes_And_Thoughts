@@ -1,0 +1,34 @@
+Hello, dear viewer!
+
+I am Aleksandra, and this is my second solution to the GildedRose-Refactoring-Kata problem. :)
+In the current branch (alrj-solution-with-util), a ItemsUtil.java class is used to store commonly used functionality.
+
+    This approach has multiple advantages:
+
+        1) Utility classes provide a centralized place for common functions that can be reused across different parts of the application.
+        This reduces code duplication and promotes the DRY (Don't Repeat Yourself) principle.
+
+        2) Util class usage makes the code easier to read, maintain, and test.
+
+        3) Utility classes allow you to maintain commonly used methods in one place. If a change is needed, it can be made in
+        the utility class, and all dependent code will automatically use the updated method.
+
+        4) Utility methods are static and can be tested in isolation from the rest of the application.
+
+        5) Consistent Usage: by defining utility methods in a single class, you ensure consistent usage across the application.
+        This can standardize how certain operations are performed, reducing errors and improving code quality.
+
+    While utility classes in Java provide benefits such as reusability and separation of concerns, they also have significant
+    drawbacks, including:
+
+        1) Promoting procedural code: Utility classes often promote a procedural style of coding, which can lead to a codebase
+        that is less object-oriented.
+
+        2) Difficulty in Unit Testing: Static methods in utility classes are hard to mock and test in isolation, making unit
+        testing more challenging.
+
+        3) Limited extensibility: Utility classes with static methods cannot be extended or overridden, limiting flexibility
+        and extensibility. This can make it difficult to modify behavior without changing the original utility class.
+
+        4) Namespace pollution: Utility classes can become overcrowded with a variety of unrelated methods, leading to poor
+        organization and namespace pollution. This makes it harder to find and manage specific utility methods.
