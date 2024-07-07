@@ -1,0 +1,79 @@
+Hello, dear viewer!
+
+I am Aleksandra, and this is my solution to the GildedRose-Refactoring-Kata problem. :)
+In the current branch (alrj-solution), a simple inheritance approach is used to refactor the code.
+
+    Simple inheritance has multiple advantages:
+
+        1) Simplicity and Clarity: Inheritance is straightforward and easy to understand. Each class has a clear and direct
+        relationship with its superclass (in this case, with the NormallyProcessedItem.java class). Inheritance simplifies
+        the codebase, making it easier to maintain and debug.
+
+        2) Avoids Complexity: Single inheritance avoids the complexity of multiple inheritance, where a class can inherit
+        from more than one superclass, leading to complex and confusing hierarchies. Java avoids multiple inheritance (using
+        classes) to prevent the "Diamond Problem," where ambiguities arise if a class inherits from two classes that have
+        a common ancestor.
+
+        3) Better Encapsulation and Modularity: Single inheritance promotes better encapsulation and modularity. Changes
+        in a superclass have a predictable impact on subclasses, helping create a well-structured and modular codebase where
+        functionality is neatly compartmentalized.
+
+        4) Code Reusability: Single inheritance allows for code reuse without the complications of multiple inheritance.
+        Common functionalities can be defined in the superclass and inherited by subclasses.
+
+        5) Promotes DRY Principle: Simple inheritance promotes the "Don't Repeat Yourself" principle, reducing code duplication.
+
+        6) Ease of Maintenance: It is easier to understand and maintain the code, as the hierarchy is not overly complex.
+
+BUT...
+
+    While simple inheritance in Java has many advantages, there are some disadvantages as well:
+
+        1) Limited Flexibility: A class can inherit from only one superclass, which might limit its ability to reuse code
+        from multiple sources. This constraint can make it difficult to design classes that need to share behavior from
+        multiple unrelated classes.
+
+        2) Potential for Deep Inheritance Hierarchies: To reuse code, developers might create deep inheritance hierarchies,
+        which can become difficult to manage and understand. Deep hierarchies can make the codebase tightly coupled, leading
+        to future maintenance challenges.
+            Example:
+                    class A { /* Some code */ }
+                    class B extends A { /* Some more code */ }
+                    class C extends B { /* Even more code */ }
+                    // and so on...
+
+        3) Risk of Breaking Subclasses: Changes in the superclass can inadvertently break subclasses if not managed
+        carefully. Developers should be very careful when implementing changes to the superclass, as changes will likely
+        be needed in overridden methods as well.
+
+        4) Code Duplication: Without the ability to inherit from multiple classes, developers might end up duplicating code
+        across different classes that need similar functionality.
+
+        5) Misuse of Inheritance: Inheritance can be misused to share code between classes that do not have an "is-a" relationship,
+        leading to inappropriate hierarchies and confusing, poorly designed class structures.
+            Example:
+                class Animal {
+                    void eat() {
+                        System.out.println("Eating");
+                    }
+                }
+
+                class Car extends Animal {
+                    // Car is not an Animal, but we're inheriting just to reuse the eat method.
+                }
+
+When logic becomes more complex, alternative approaches should be used:
+
+    1) Interfaces and Abstract Classes
+    2) Composition to assemble behaviors from different classes instead of inheriting from a superclass
+    3) Design patterns like Strategy, Decorator, and Factory to achieve code reuse and flexibility without relying heavily
+    on inheritance.
+
+To summarize, the solution provided by me improves code readability, maintainability, and makes it easier to add new types
+of items in the future.
+The current refactoring can be improved even more by using an Enum for the Item's name field, and I am brave enough to talk
+with Goblin if required.
+
+P.S. The more I look into the code, the more different solutions I see. For example, updateQuality() and updateSellIn()
+can be moved to an ItemsUtil.java class, which would open up new variations of refactoring.
+
